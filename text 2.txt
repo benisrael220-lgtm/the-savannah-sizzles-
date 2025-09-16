@@ -363,7 +363,7 @@ Index.html
             <div class="event">
               <div>
                 <div class="when">23rd November</div>
-                <div class="where">Evergreen Park • BBQ Party Experience</div>
+                <div class="where">Jamhuri Show Grounds • BBQ Party Experience</div>
                 <div style="margin-top:8px" class="small">Tickets & RSVPs: 0729 249 870</div>
               </div>
               <div style="text-align:right">
