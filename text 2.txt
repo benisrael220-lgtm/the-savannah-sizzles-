@@ -1,0 +1,485 @@
+Index.html 
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Savannah Sizzle — Feed the Flame</title>
+  <meta name="description" content="Savannah Sizzle — BBQ by The Saint. Book our pit master for events, check our menu, reviews and upcoming BBQ party on 23rd November." />
+  <link rel="icon" href="" />
+  <style>
+    :root{
+      --accent:#d7263d; /* deep red */
+      --accent-2:#f6a623; /* warm yellow */
+      --dark:#1b1b1b;
+      --muted:#6b6b6b;
+      --card:#fff6ef;
+      --bg:#fbf7f3;
+      --radius:12px;
+      --container:1100px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #fffdfa 0%, #fff6f0 100%);
+      color:var(--dark);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{
+      max-width:var(--container);
+      margin:28px auto;
+      padding:24px;
+    }
+
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:72px;
+      height:72px;
+      border-radius:14px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#fce7d6,#fdeee0);
+      border:3px solid rgba(0,0,0,0.06);
+    }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    .brand h1{margin:0;font-size:20px;letter-spacing:1px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      border:0;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:white;
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--dark);
+      border:1px solid rgba(0,0,0,0.06);
+    }
+
+    .hero{
+      background:linear-gradient(90deg, rgba(0,0,0,0.15), rgba(0,0,0,0.03)), url('/mnt/data/086D5916-C42C-48F7-A83F-AA5672579877.jpeg');
+      background-size:cover;
+      background-position:center;
+      border-radius:16px;
+      padding:44px;
+      color:white;
+      display:flex;
+      gap:28px;
+      align-items:center;
+      margin-bottom:24px;
+    }
+    .hero-left{flex:1;max-width:70%}
+    .hero h2{margin:0;font-size:34px;letter-spacing:1px}
+    .hero p{margin:10px 0 0;color: #fff4e6;font-size:16px}
+    .hero-cta{margin-top:18px;display:flex;gap:10px}
+
+    .badge{
+      background:rgba(255,255,255,0.12);
+      display:inline-block;
+      padding:8px 12px;border-radius:999px;
+      font-weight:700;font-size:13px;
+    }
+
+    main{margin-top:10px}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+      align-items:start;
+    }
+
+    /* left column */
+    .col-8{grid-column:span 8}
+    .col-4{grid-column:span 4}
+
+    .card{
+      background:linear-gradient(180deg,var(--card),#fff);
+      border-radius:12px;
+      padding:18px;
+      box-shadow:0 6px 30px rgba(30,30,30,0.06);
+    }
+    h3{margin:0 0 10px 0;font-size:18px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* Menu list */
+    .menu{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .menu .box{
+      background:transparent;
+      min-width:170px;
+    }
+    .menu ul{list-style:none;padding:0;margin:8px 0 0 0}
+    .menu li{padding:6px 0;border-bottom:1px dashed rgba(0,0,0,0.03)}
+
+    /* Chef section */
+    .chef{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .chef img{width:120px;height:120px;object-fit:cover;border-radius:10px;flex-shrink:0;border:3px solid rgba(0,0,0,0.05)}
+    .chef p{margin:8px 0 0 0}
+
+    /* Reviews */
+    .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .rev{background:linear-gradient(180deg,#fff,#fffaf0);padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.03)}
+    .stars{color:var(--accent-2);font-weight:700}
+
+    /* Event highlight */
+    .event{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px;border-radius:12px;
+      background:linear-gradient(90deg, rgba(215,38,61,0.06), rgba(246,166,35,0.04));
+      border:1px solid rgba(215,38,61,0.06);
+    }
+    .event .when{font-weight:800;font-size:18px;color:var(--accent)}
+    .event .where{color:var(--muted)}
+
+    /* Booking form */
+    form{display:grid;gap:10px}
+    input[type="text"], input[type="tel"], input[type="date"], input[type="number"], textarea, select{
+      padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.07);
+      font-size:14px;width:100%;
+    }
+    textarea{min-height:100px;resize:vertical}
+    .form-row{display:flex;gap:8px}
+    .form-row > *{flex:1}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+
+    footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px;padding:20px 0}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:repeat(6,1fr)}
+      .col-8{grid-column:span 6}
+      .col-4{grid-column:span 6}
+      .hero-left{max-width:100%}
+      .hero{flex-direction:column;align-items:flex-start;padding:20px}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:560px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .hero h2{font-size:22px}
+    }
+
+    /* subtle btn */
+    .call {
+      display:inline-flex;gap:8px;align-items:center;
+      background:#fff;border-radius:10px;padding:8px 12px;border:1px solid rgba(0,0,0,0.06);
+      color:var(--dark);text-decoration:none;font-weight:700;
+    }
+
+    .small{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- use a provided image for logo / hero crop -->
+          <img src="/mnt/data/655AB2AB-756A-4BBF-8467-9185E89C8BA1.jpeg" alt="Savannah Sizzle logo / The Saint" />
+        </div>
+        <div>
+          <h1>Savannah Sizzle</h1>
+          <p class="small">BBQ that bites back — smoked low, served right. <span style="display:block;color:var(--muted)">Pit Master: The Saint</span></p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="call" href="tel:+254729249870">📞 0729 249 870</a>
+        <a class="btn btn-ghost" href="https://instagram.com/thesavannahsizzle" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-primary" href="#booking">Book Now</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" role="region" aria-label="Savannah Sizzle hero">
+      <div class="hero-left">
+        <span class="badge">Savannah Sizzle • The Saint</span>
+        <h2>Feed the flame. Taste the difference.</h2>
+        <p>We craft pit-smoked ribs, juicy chicken and authentic BBQ goat — smoked low for tenderness and seasoned for soul. Book us for weddings, birthdays, corporate events and private parties.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#booking">Request a Quote</a>
+          <a class="btn btn-ghost" href="#menu">See Menu</a>
+        </div>
+      </div>
+
+      <div style="min-width:220px;text-align:right;">
+        <div style="background:rgba(0,0,0,0.25);padding:12px;border-radius:10px;display:inline-block">
+          <div style="font-weight:800;font-size:16px">Next Big Event</div>
+          <div style="color:#fff6e8;margin-top:6px"><strong>23rd November</strong> — BBQ Party Experience</div>
+          <div style="margin-top:8px;"><a class="btn btn-primary" href="#event">RSVP / Info</a></div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="grid">
+        <!-- left / main -->
+        <div class="col-8">
+          <!-- About / Chef -->
+          <section class="card" id="about">
+            <h3>About Savannah Sizzle</h3>
+            <p class="muted">Savannah Sizzle brings the fire. Led by The Saint, our pit master, we combine traditional smoke techniques with bold Kenyan flavours to deliver unforgettable BBQ experiences for events across Nairobi and beyond.</p>
+
+            <div style="height:16px"></div>
+
+            <div class="chef" aria-label="A word from the chef">
+              <img src="/mnt/data/655AB2AB-756A-4BBF-8465E89C8BA1.jpeg" alt="The Saint — Pit Master (Savannah Sizzle)" onerror="this.style.display='none'"/>
+              <div>
+                <h3>A word from The Saint</h3>
+                <p>“BBQ is more than food — it's community. Every rack of ribs, every smoky wing, every plate that leaves our pit is made with time, respect and love. I smoke low so the flavours get in deep. Come hungry.”</p>
+                <p class="small">— The Saint, Pit Master & Founder</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Menu -->
+          <section class="card" id="menu" style="margin-top:16px">
+            <h3>Our Menu</h3>
+            <div class="menu">
+              <div class="box">
+                <strong>Meals</strong>
+                <ul>
+                  <li>Chicken Wings</li>
+                  <li>Chicken Legs</li>
+                  <li>Pork Ribs</li>
+                  <li>BBQ Goat</li>
+                </ul>
+              </div>
+              <div class="box">
+                <strong>Sides</strong>
+                <ul>
+                  <li>Chips Masala</li>
+                  <li>Mashed Potatoes</li>
+                  <li>Potato Salad</li>
+                </ul>
+              </div>
+              <div class="box">
+                <strong>Salads</strong>
+                <ul>
+                  <li>Coleslaw</li>
+                  <li>Kachumbari</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="height:12px"></div>
+            <img src="/mnt/data/086D5916-C42C-48F7-A83F-AA5672579877.jpeg" alt="Grilled steaks and fire" style="width:100%;border-radius:10px;object-fit:cover;max-height:300px" />
+          </section>
+
+          <!-- Reviews -->
+          <section class="card" style="margin-top:16px" id="reviews">
+            <h3>What people are saying</h3>
+            <p class="muted">Selected reviews from customers — real vibes, real flavour.</p>
+
+            <div style="height:12px"></div>
+            <div class="reviews">
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">James</div><div class="small">"The best BBQ I’ve ever had, hands down!"</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Cynthia</div><div class="small">"Tender, juicy, smoky – pure perfection."</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Kevin</div><div class="small">"Savannah Sizzle made our event unforgettable!"</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Maria</div><div class="small">"Friendly service and mouthwatering ribs."</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Brian</div><div class="small">"The Saint knows his fire magic!"</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Njeri</div><div class="small">"Best BBQ in Nairobi, no debate."</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Ahmed</div><div class="small">"Delicious food, great vibes, amazing people."</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Lydia</div><div class="small">"Perfectly grilled chicken wings – I’m hooked."</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Collins</div><div class="small">"The BBQ goat is a game changer."</div></div>
+              <div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700;margin-top:6px">Esther</div><div class="small">"Can’t wait for the next event - worth every bite."</div></div>
+            </div>
+          </section>
+
+          <!-- Media gallery -->
+          <section class="card" style="margin-top:16px" id="media">
+            <h3>Media & Past Events</h3>
+            <p class="muted">Photos & short clips from our Instagram — click to view the full feed.</p>
+            <div style="height:12px"></div>
+
+            <div class="gallery">
+              <!-- If you want live Instagram images, replace these src with downloaded images from your IG posts -->
+              <a href="https://instagram.com/thesavannahsizzle" target="_blank" rel="noopener">
+                <img src="/mnt/data/086D5916-C42C-48F7-A83F-AA5672579877.jpeg" alt="Savannah Sizzle event photo 1" />
+              </a>
+              <a href="https://instagram.com/thesavannahsizzle" target="_blank" rel="noopener">
+                <img src="/mnt/data/655AB2AB-756A-4BBF-8467-9185E89C8BA1.jpeg" alt="Savannah Sizzle event photo 2" />
+              </a>
+              <a href="https://instagram.com/thesavannahsizzle" target="_blank" rel="noopener">
+                <img src="/mnt/data/086D5916-C42C-48F7-A83F-AA5672579877.jpeg" alt="Savannah Sizzle event photo 3" />
+              </a>
+              <a href="https://instagram.com/thesavannahsizzle" target="_blank" rel="noopener"><img src="/mnt/data/655AB2AB-756A-4BBF-8467-9185E89C8BA1.jpeg" alt="Savannah Sizzle event photo 4" /></a>
+              <a href="https://instagram.com/thesavannahsizzle" target="_blank" rel="noopener"><img src="/mnt/data/086D5916-C42C-48F7-A83F-AA5672579877.jpeg" alt="Savannah Sizzle event photo 5" /></a>
+              <a href="https://instagram.com/thesavannahsizzle" target="_blank" rel="noopener"><img src="/mnt/data/655AB2AB-756A-4BBF-8467-9185E89C8BA1.jpeg" alt="Savannah Sizzle event photo 6" /></a>
+            </div>
+            <div style="height:12px"></div>
+            <p class="small">Want a gallery with your best event clips? I can help export more IG photos and replace these with high-res shots.</p>
+          </section>
+        </div>
+
+        <!-- right column -->
+        <aside class="col-4">
+          <!-- Event highlight -->
+          <div class="card" id="event">
+            <h3>Event: 23rd November</h3>
+            <div class="event">
+              <div>
+                <div class="when">23rd November</div>
+                <div class="where">Evergreen Park • BBQ Party Experience</div>
+                <div style="margin-top:8px" class="small">Tickets & RSVPs: 0729 249 870</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-weight:800;color:var(--accent-2)">Bring friends • Live music • Full menu</div>
+                <div style="margin-top:8px"><a class="btn btn-primary" href="https://instagram.com/thesavannahsizzle" target="_blank" rel="noopener">See event post</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick contact -->
+          <div class="card" style="margin-top:16px">
+            <h3>Quick Contact</h3>
+            <p class="muted">Questions? Orders? Bookings?</p>
+            <p style="margin:12px 0"><a class="call" href="tel:+254729249870">📞 0729 249 870</a></p>
+            <p style="margin:8px 0"><a class="btn btn-ghost" href="https://instagram.com/thesavannahsizzle" target="_blank">Open Instagram</a></p>
+            <p class="small">Payment options & how to pay available on our IG profile link.</p>
+          </div>
+
+          <!-- Booking form -->
+          <div class="card" id="booking" style="margin-top:16px">
+            <h3>Request a Quote / Book</h3>
+            <p class="muted">Fill this and we’ll call or email back. You can also call us: <strong>0729 249 870</strong>.</p>
+
+            <!-- The form composes an email with the request details -->
+            <form id="bookingForm" onsubmit="composeEmail(event)">
+              <input type="text" id="name" placeholder="Your full name" required />
+              <input type="tel" id="phone" placeholder="Phone number (e.g. 0729 249 870)" required />
+              <select id="eventType" required>
+                <option value="">Event type</option>
+                <option>Birthday</option>
+                <option>Wedding</option>
+                <option>Corporate</option>
+                <option>Private Party</option>
+                <option>Other</option>
+              </select>
+
+              <div class="form-row">
+                <input type="date" id="date" />
+                <input type="number" id="guests" placeholder="Guests (est.)" min="1" />
+              </div>
+
+              <textarea id="details" placeholder="Tell us about the event / special requests"></textarea>
+
+              <div style="display:flex;gap:8px;align-items:center">
+                <button class="btn btn-primary" type="submit">Send Request</button>
+                <a class="btn btn-ghost" href="tel:+254729249870">Call: 0729 249 870</a>
+              </div>
+
+              <p id="formNote" class="small" style="margin-top:8px;color:var(--muted)"></p>
+            </form>
+          </div>
+
+          <!-- Map / location suggestion (static) -->
+          <div class="card" style="margin-top:16px">
+            <h3>Service Area</h3>
+            <p class="muted">Nairobi & surrounding areas. Travel fee applies for locations outside Nairobi. Contact for details.</p>
+            <div style="height:12px"></div>
+            <a class="btn btn-ghost" href="https://instagram.com/thesavannahsizzle" target="_blank">See How We Work</a>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <div>© <strong>Savannah Sizzle</strong> — Pit Master: The Saint • Phone: <a href="tel:+254729249870">0729 249 870</a></div>
+      <div style="margin-top:6px">Follow: <a href="https://instagram.com/thesavannahsizzle" target="_blank">@thesavannahsizzle</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // Compose an email to the business owner with the booking details.
+    function composeEmail(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const type = document.getElementById('eventType').value || 'Not specified';
+      const date = document.getElementById('date').value || 'Flexible';
+      const guests = document.getElementById('guests').value || 'TBA';
+      const details = document.getElementById('details').value.trim() || 'No additional details';
+
+      const subject = encodeURIComponent('Booking Request from ' + name);
+      const bodyLines = [
+        `Name: ${name}`,
+        `Phone: ${phone}`,
+        `Event type: ${type}`,
+        `Preferred date: ${date}`,
+        `Estimated guests: ${guests}`,
+        '',
+        'Details / Requests:',
+        details,
+        '',
+        '-- Sent from Savannah Sizzle website'
+      ];
+      const body = encodeURIComponent(bodyLines.join('\n'));
+
+      // Business email fallback. If you have a dedicated email, replace below:
+      const businessEmail = 'savannahsizzle@example.com'; // <-- replace with real email if available
+
+      // mailto link
+      const mailto = `mailto:${businessEmail}?subject=${subject}&body=${body}`;
+      // open mail client
+      window.location.href = mailto;
+
+      // show user note
+      document.getElementById('formNote').textContent = 'Your email client should open with the request. If not, call 0729 249 870 or message us on Instagram.';
+    }
+
+    // Small enhancement: validate phone number formatting (basic)
+    (function attachPhoneFormatting(){
+      const phoneEl = document.getElementById('phone');
+      if(!phoneEl) return;
+      phoneEl.addEventListener('input', ()=>{
+        // allow digits, + and spaces only
+        phoneEl.value = phoneEl.value.replace(/[^\d+\s\-()]/g,'');
+      });
+    })();
+  </script>
+</body>
+</html>
